@@ -38,6 +38,5 @@ function mostrarProductos (lista)
 	}
 }
 
-fetch("https://japceibal.github.io/emercado-api/cats_products/101.json")
-	.then(respuesta => respuesta.json())
-	.then(productos => mostrarProductos(productos) )
+getJSONData(PRODUCTS_URL+101+EXT_TYPE)
+	.then(productos => mostrarProductos(productos.data) )
