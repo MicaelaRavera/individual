@@ -38,5 +38,5 @@ function mostrarProductos (lista)
 	}
 }
 
-getJSONData(PRODUCTS_URL+101+EXT_TYPE)
+getJSONData(PRODUCTS_URL+localStorage.getItem("catID")+EXT_TYPE)
 	.then(productos => mostrarProductos(productos.data) )
