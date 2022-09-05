@@ -1,5 +1,37 @@
+let precio = false
+let ascendente = false
+
+
 function mostrarProductos (lista)
 {
+	lista.products.sort((a,b) => {
+		let primero;
+		let segundo;
+		let orden;
+		if (ascendente === true){
+			orden = 1
+		}
+		else {
+			orden = -1
+		}
+		if (precio){
+			primero = a.cost
+			segundo = b.cost
+		}
+		else {
+			primero = a.soldCount 
+			segundo = b.soldCount
+		}
+		if (primero > segundo ){
+			return orden
+		}
+		else if (primero === segundo) {
+			return 0
+		}
+		else {
+			 return - orden
+		}
+	})
 	let productosdiv =document.getElementById ("productos")
 	productosdiv.innerHTML =`
 	<center class="titulo">
