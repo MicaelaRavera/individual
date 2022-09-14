@@ -63,7 +63,7 @@ function mostrarProductos(lista) {
 	for (let producto of productsFiltrados) {
 		productosdiv.innerHTML += `
 
-	<div class="producto">
+	<div class="producto" product-id="${producto.id}">
      	<img src="${producto.image}"
 		 width="200"
 		 height="100">
@@ -85,6 +85,16 @@ function mostrarProductos(lista) {
 	<hr>
 		`
 	}
+	let domproductos = document.getElementsByClassName("producto")
+
+	for(let producto of domproductos ){
+		producto.addEventListener("click", () => {
+			let idproducto = producto.getAttribute("product-id")	
+			idproducto = localStorage.setItem("idproduct", idproducto )
+			window.location.replace("product-info.html")
+		})
+	}
+	
 }
 
 function cargarProductos() {
