@@ -4,6 +4,7 @@ function cargarProducto() {
 }
 window.addEventListener("load",()=>{
     cargarProducto()
+    cargarComentarios()
 })
 function mostrarProducto(producto){
 let detallesproducto = document.getElementById("productoinfo")
@@ -38,22 +39,25 @@ let detallesproducto = document.getElementById("productoinfo")
      detallesproducto.innerHTML +=`
 
     `
-    function comment() {
-        var name = document.getElementById('name').value;
-        var comment = document.getElementById('comment').value;
-        let fecha = new date()
-
-        if (name == "" || comment == "") {
-        } else {
-            var txt_name = document.createTextNode(name);
-            var txt_message = document.createTextNode(comment);
-            el_name.appendChild(txt_name);
-            el_message.appendChild(txt_message);
-            el_line.style.border = '1px solid #000';
-           
-            document.getElementById('name').value = "";
-            document.getElementById('comment').value = "";
-        }
-
-    }
 }
+function mostrarComentarios(comentarios){
+let detallescomentarios = document.getElementById("comentariosinfo")
+   for (let comentario of comentarios ){
+detallescomentarios.innerHTML += `
+    ${comentario.user}
+    ${comentario.dateTime}
+   
+<span class="fa fa-star ${comentario.score >= 1 ?"checked":""}"></span>
+<span class="fa fa-star  ${comentario.score >= 2 ? "checked" : ""}"></span>
+<span class="fa fa-star  ${comentario.score >= 3 ? "checked" : ""} "></span>
+<span class="fa fa-star ${comentario.score >= 4 ? "checked" : ""} "></span>
+<span class="fa fa-star ${comentario.score >= 5 ? "checked" : ""} "></span>
+    ${comentario.description}
+`
+ }
+}
+function cargarComentarios (){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("idproduct") + EXT_TYPE)
+        .then(comentarios => mostrarComentarios(comentarios.data))
+}
+
