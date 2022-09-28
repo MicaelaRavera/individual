@@ -44,15 +44,22 @@ function mostrarComentarios(comentarios){
 let detallescomentarios = document.getElementById("comentariosinfo")
    for (let comentario of comentarios ){
 detallescomentarios.innerHTML += `
+<div class="todo">
+<div class="usertime">
     ${comentario.user}
     ${comentario.dateTime}
-   
+
 <span class="fa fa-star ${comentario.score >= 1 ?"checked":""}"></span>
 <span class="fa fa-star  ${comentario.score >= 2 ? "checked" : ""}"></span>
 <span class="fa fa-star  ${comentario.score >= 3 ? "checked" : ""} "></span>
 <span class="fa fa-star ${comentario.score >= 4 ? "checked" : ""} "></span>
 <span class="fa fa-star ${comentario.score >= 5 ? "checked" : ""} "></span>
-    ${comentario.description}
+</div>
+
+<div class="descripcion"> 
+${comentario.description}
+</div>
+</div>
 `
  }
 }
