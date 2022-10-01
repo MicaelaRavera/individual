@@ -208,3 +208,7 @@ border:solid black thin;
 .seleccion{
   width: 300px;
 }
+.relacion{
+  width: 70%;
+  margin-left:10px;
+}

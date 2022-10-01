@@ -80,7 +80,7 @@ function mostrarProductos(lista) {
 	<span>
 		${producto.soldCount} vendidos
 	</span>
-
+	
 	</div>
 	<hr>
 		`

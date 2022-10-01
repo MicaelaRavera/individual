@@ -10,6 +10,7 @@ function mostrarProducto(producto){
 let detallesproducto = document.getElementById("productoinfo")
     detallesproducto.innerHTML = `
 
+
     <h2 class="producto">
     ${producto.name}
     <br>
@@ -37,8 +38,29 @@ let detallesproducto = document.getElementById("productoinfo")
          ` 
      }
      detallesproducto.innerHTML +=`
-
+    
     `
+    
+    let productorelacionado = document.getElementById("productrelacionado")
+    for(let relacionado of producto.relatedProducts){
+        productorelacionado.innerHTML += `
+            <div class="productorelacionado" product-id="${relacionado.id}" >
+           ${relacionado.name}
+           <img src="${relacionado.image}"
+           width="200"
+           height="100">
+            </div>
+
+         ` 
+    }
+    let domproductos = document.getElementsByClassName("productorelacionado")
+    for (let producto of domproductos) {
+        producto.addEventListener("click", () => {
+            let idproducto = producto.getAttribute("product-id")
+            idproducto = localStorage.setItem("idproduct", idproducto)
+            window.location.replace("product-info.html")
+        })
+    }
 }
 function mostrarComentarios(comentarios){
 let detallescomentarios = document.getElementById("comentariosinfo")
@@ -67,4 +89,5 @@ function cargarComentarios (){
     getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("idproduct") + EXT_TYPE)
         .then(comentarios => mostrarComentarios(comentarios.data))
 }
+
 
