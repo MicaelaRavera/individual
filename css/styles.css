@@ -212,3 +212,8 @@ border:solid black thin;
   width: 70%;
   margin-left:10px;
 }
+#productrelacionado{
+  display:flex;
+  flex-direction: row;
+  gap:10px;
+}

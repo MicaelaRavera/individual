@@ -45,11 +45,13 @@ let detallesproducto = document.getElementById("productoinfo")
     for(let relacionado of producto.relatedProducts){
         productorelacionado.innerHTML += `
             <div class="productorelacionado" product-id="${relacionado.id}" >
-           ${relacionado.name}
            <img src="${relacionado.image}"
            width="200"
-           height="100">
+           height="100"
+           >
+            <p> ${relacionado.name} </p>
             </div>
+            
 
          ` 
     }
