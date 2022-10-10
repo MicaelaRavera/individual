@@ -217,3 +217,9 @@ border:solid black thin;
   flex-direction: row;
   gap:10px;
 }
+.carrito{
+ height: 50px;
+}
+.carritoCantidad{
+ max-width: 100px;
+}
