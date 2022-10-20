@@ -1,36 +1,78 @@
+let infoproductos = []
+
+function guardarproductos(jsonlista){
+   infoproductos = jsonlista.articles 
+   mostrarCarrito ()
+}
 function cargarCarrito() {
       getJSONData(CART_INFO_URL + 25801 + EXT_TYPE)
-        .then(productos => mostrarCarrito(productos.data))
+        .then(productos => guardarproductos(productos.data))
     
     
 }
 
 cargarCarrito()
 
-function mostrarCarrito(jsonlista){
+function mostrarCarrito(){
     let detallescarrito = document.getElementById("carrito")
-    for (let producto of jsonlista.articles)
+    detallescarrito.innerHTML = ""
+    for (let producto of infoproductos){
     detallescarrito.innerHTML += `
     <tr>
         <th scope="row"> <img class="carrito" src="${producto.image}"> ${producto.name}</th>
         <td> ${producto.currency} ${producto.unitCost}</td>
-        <td> <input  oninput="subtotal(event.target.value,${producto.unitCost},${producto.id})" class="form-control carritoCantidad" type="number"  value=${producto.count}></td>
+        <td> <input  oninput="cambiarcantidadproducto(event.target.value,${producto.id})" class="form-control carritoCantidad" type="number"  value=${producto.count}></td>
         <td>${producto.currency} 
         <span  id="subtotal${producto.id}">
          ${producto.unitCost*producto.count}
          </span>
-         </td>
     </tr>
     `
+     }
+     let subtotalTotal = 0
+     for(let producto of infoproductos ){
+      subtotalTotal +=  producto.unitCost * producto.count
+      }
+    let sumasubtotal = document.getElementById("subtotalgeneral")
+    sumasubtotal.innerHTML = `
+     <span> USD ${subtotalTotal} </span>
+    `
+    let costoenvio = document.getElementById("costoenvio")
+    let checked15 = document.getElementById("check15")
+    if (checked15.checked) {
+        costoenvio.innerHTML = ` 
+        <span> USD ${subtotalTotal*0.15} </span>
+        `
+    }
+
+    let checked7 = document.getElementById("check7")
+    if (checked7.checked) {
+        costoenvio.innerHTML = ` 
+        <span> USD ${subtotalTotal *0.07} </span>
+        `
+    }
+
+    let checked5 = document.getElementById("check5")
+    if (checked5.checked) {
+        costoenvio.innerHTML = ` 
+        <span> USD ${subtotalTotal * 0.05} </span>
+        `
+    }
+    
 }
 
-function subtotal(cantidad, cost,id) {
-    let subtotalspan = document.getElementById("subtotal"+id)
-    subtotalspan.innerHTML = `
-    ${cantidad * cost }
-    `
- 
+function cambiarcantidadproducto(cantidad,id) {
+  for(let producto of infoproductos) {
+    console.log(producto)
+    if (producto.id == id){
+        console.log(id)
+        console.log(cantidad)
+        producto.count = cantidad
+        mostrarCarrito ()
+    }
+  } 
 }
+
 
 
 
