@@ -69,7 +69,7 @@
           <tbody id="carrito">
           </tbody>
         </table>
-        <h3>Tipo de envio</h3>
+        <h4>Tipo de envio</h4>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="check15" onchange="mostrarCarrito()">
           <label class="form-check-label" for="flexRadioDefault1">
@@ -107,24 +107,84 @@
             <br>
             <hr>
             <div>
-              <h1>Costos</h1>
-              <div class="border">
+              <h4>Costos</h4>
+              <div class="border d-flex justify-content-between">
+                <div>
                 <span>subtotal</span>
                 <br>
                 <span>Costo unitario del producto por cantidad</span> 
+                </div>
                 <span id="subtotalgeneral"></span>
               </div>
-              <div class="border">
+              <div class="border d-flex justify-content-between">
+                <div>
                 <span>Costo de envio</span>
                 <br>
-                <span>Segun el tipo de envio</span> 
+                <span>Segun el tipo de envio</span>
+                </div>
                 <span id="costoenvio"></span>
               </div>
-              <div class="border">
+              <div class="border d-flex justify-content-between">
                 <span>Total ($)</span>
                 <span id="total"></span>
               </div>
+              <br>
+              <h4>Forma de pago</h4>
+              <br>
+              <span>No ha seleccionado</span> <a href="" data-bs-toggle="modal" data-bs-target="#miModal">seleccionar</a>
+              <div class="modal fade" id="miModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" itemid="modalTitle">Forma de pago</h5> 
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                      <input class="form-check-input" type="radio" name="flexRadioDefault">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Tarjeta de credito
+                      </label>
+                      <hr>
+                      <div class="row">
+                        <div class="col-6">
+                          <label for="formGroupExampleInput">Numero de tarjeta</label>
+                          <input type="text" class="form-control">
+                        </div>
+                          <div class="col-6">
+                            <label for="formGroupExampleInput">codigo de seg</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <div class="col-6">
+                            <label for="formGroupExampleInput">Vencimiento (MM/AA)</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br>
+                          <div>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Tarjeta de credito
+                            </label>
+                          <hr>
+                          <div class="col-6">
+                            <label for="formGroupExampleInput">Numero de cuenta</label>
+                            <input type="text" class="form-control">
+                          </div>  
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div>
+            <br>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">Finalizar compra  </button>
+          </div>
+          </div>
         </form>
       </div>
   </main>

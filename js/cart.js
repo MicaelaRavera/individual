@@ -37,12 +37,14 @@ function mostrarCarrito(){
     sumasubtotal.innerHTML = `
      <span> USD ${subtotalTotal} </span>
     `
+    let totalTotal = subtotalTotal
     let costoenvio = document.getElementById("costoenvio")
     let checked15 = document.getElementById("check15")
     if (checked15.checked) {
         costoenvio.innerHTML = ` 
         <span> USD ${subtotalTotal*0.15} </span>
         `
+        totalTotal += subtotalTotal*0.15 
     }
 
     let checked7 = document.getElementById("check7")
@@ -50,6 +52,7 @@ function mostrarCarrito(){
         costoenvio.innerHTML = ` 
         <span> USD ${subtotalTotal *0.07} </span>
         `
+        totalTotal += subtotalTotal*0.07
     }
 
     let checked5 = document.getElementById("check5")
@@ -57,7 +60,13 @@ function mostrarCarrito(){
         costoenvio.innerHTML = ` 
         <span> USD ${subtotalTotal * 0.05} </span>
         `
+        totalTotal += subtotalTotal * 0.05
     }
+    
+    let total = document.getElementById ("total")
+     total.innerHTML =`
+    ${totalTotal}
+    `
     
 }
 
@@ -72,6 +81,7 @@ function cambiarcantidadproducto(cantidad,id) {
     }
   } 
 }
+
 
 
 
