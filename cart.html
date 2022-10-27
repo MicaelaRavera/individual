@@ -55,54 +55,57 @@
   <main>
     <div class="container">
       <div class="align-baseline">
-        <h1 class="text-center">Carrito de compras</h1>
-        <p1 class="text-start">Articulos a comprar</p1>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Costo</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody id="carrito">
-          </tbody>
-        </table>
-        <h4>Tipo de envio</h4>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="check15" onchange="mostrarCarrito()">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Premium de 2 a 5 dias (15%)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="check7" onchange="mostrarCarrito()">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Express 5 a 8 dias (7%)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="check5" onchange="mostrarCarrito()">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Standard 12 a 15 dias (5%)
-          </label>
-        </div>
-        <br>
-        <h4>Direccion de envio</h4>
-        <form>
+        <form class="row g-3 needs-validation" novalidate>
+          <h1 class="text-center">Carrito de compras</h1>
+          <p1 class="text-start">Articulos a comprar</p1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Costo</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="carrito">
+            </tbody>
+          </table>
+          <h4>Tipo de envio</h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="check15"
+              onchange="mostrarCarrito()" required>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Premium de 2 a 5 dias (15%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="check7"
+              onchange="mostrarCarrito()" required>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Express 5 a 8 dias (7%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="check5"
+              onchange="mostrarCarrito()" required>
+            <label class="form-check-label" for="flexRadioDefault1">
+              Standard 12 a 15 dias (5%)
+            </label>
+          </div>
+          <br>
+          <h4>Direccion de envio</h4>
           <div class="row">
             <div class="col-6">
               <label for="formGroupExampleInput">Calle</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" required>
             </div>
             <div class="col-6">
               <label for="formGroupExampleInput">Numero</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" required>
             </div>
             <div class="col-6">
               <label for="formGroupExampleInput">Esquina</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" required>
             </div>
             <br>
             <hr>
@@ -110,17 +113,17 @@
               <h4>Costos</h4>
               <div class="border d-flex justify-content-between">
                 <div>
-                <span>subtotal</span>
-                <br>
-                <span>Costo unitario del producto por cantidad</span> 
+                  <span>subtotal</span>
+                  <br>
+                  <span>Costo unitario del producto por cantidad</span>
                 </div>
                 <span id="subtotalgeneral"></span>
               </div>
               <div class="border d-flex justify-content-between">
                 <div>
-                <span>Costo de envio</span>
-                <br>
-                <span>Segun el tipo de envio</span>
+                  <span>Costo de envio</span>
+                  <br>
+                  <span>Segun el tipo de envio</span>
                 </div>
                 <span id="costoenvio"></span>
               </div>
@@ -131,60 +134,61 @@
               <br>
               <h4>Forma de pago</h4>
               <br>
-              <span>No ha seleccionado</span> <a href="" data-bs-toggle="modal" data-bs-target="#miModal">seleccionar</a>
+              <span>No ha seleccionado</span> <a href="" data-bs-toggle="modal"
+                data-bs-target="#miModal">seleccionar</a>
               <div class="modal fade" id="miModal" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" itemid="modalTitle">Forma de pago</h5> 
+                      <h5 class="modal-title" itemid="modalTitle">Forma de pago</h5>
                     </div>
                     <div class="modal-body">
                       <div>
-                      <input class="form-check-input" type="radio" name="flexRadioDefault">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Tarjeta de credito
-                      </label>
-                      <hr>
-                      <div class="row">
-                        <div class="col-6">
-                          <label for="formGroupExampleInput">Numero de tarjeta</label>
-                          <input type="text" class="form-control">
-                        </div>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radiocredito" required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Tarjeta de credito
+                        </label>
+                        <hr>
+                        <div class="row">
+                          <div class="col-6">
+                            <label for="formGroupExampleInput">Numero de tarjeta</label>
+                            <input type="text" class="form-control control-credito" required>
+                          </div>
                           <div class="col-6">
                             <label for="formGroupExampleInput">codigo de seg</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control control-credito" required>
                           </div>
                           <div class="col-6">
                             <label for="formGroupExampleInput">Vencimiento (MM/AA)</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control control-credito" required>
                           </div>
                           <br>
                           <div>
-                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="radiotransferencia" required>
                             <label class="form-check-label" for="flexRadioDefault1">
-                              Tarjeta de credito
+                              Transferencia bancaria
                             </label>
-                          <hr>
-                          <div class="col-6">
-                            <label for="formGroupExampleInput">Numero de cuenta</label>
-                            <input type="text" class="form-control">
-                          </div>  
+                            <hr>
+                            <div class="col-6">
+                              <label for="formGroupExampleInput">Numero de cuenta</label>
+                              <input type="text" class="form-control control-transferencia" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Cerrar</button>
+                        </div>
                       </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Cerrar</button>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div>
-            <br>
-          <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">Finalizar compra  </button>
-          </div>
-          </div>
+              <div>
+                <br>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary" type="submit">Finalizar compra </button>
+                </div>
+              </div>
         </form>
       </div>
   </main>

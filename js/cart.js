@@ -21,7 +21,7 @@ function mostrarCarrito(){
     <tr>
         <th scope="row"> <img class="carrito" src="${producto.image}"> ${producto.name}</th>
         <td> ${producto.currency} ${producto.unitCost}</td>
-        <td> <input  oninput="cambiarcantidadproducto(event.target.value,${producto.id})" class="form-control carritoCantidad" type="number"  value=${producto.count}></td>
+        <td> <input  oninput="cambiarcantidadproducto(event.target.value,${producto.id})" class="form-control carritoCantidad" type="number"  value=${producto.count} min="1" required></td>
         <td>${producto.currency} 
         <span  id="subtotal${producto.id}">
          ${producto.unitCost*producto.count}
@@ -81,6 +81,59 @@ function cambiarcantidadproducto(cantidad,id) {
     }
   } 
 }
+
+
+(function () {
+  'use strict'
+
+  var forms = document.querySelectorAll('.needs-validation')
+
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity()) {
+          alert("ha comprado con exsito")
+        }
+        else {
+          alert("fallo la compra")
+        }
+        event.preventDefault()
+        event.stopPropagation()
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+let radiotransferencia = document.getElementById("radiotransferencia")
+let radiocredito = document.getElementById("radiocredito")
+
+function cambiosdepago() {
+  let controlescredito = document.getElementsByClassName("control-credito")
+  for (let control of controlescredito) {
+    if (radiocredito.checked) {
+      control.disabled = false
+    }
+    else {
+      control.disabled = true
+    }
+  }
+  let controlestransferencia = document.getElementsByClassName("control-transferencia")
+  for (let control of controlestransferencia) {
+    if (radiotransferencia.checked) {
+      control.disabled = false
+    }
+    else {
+      control.disabled = true
+    }
+  }
+
+}
+
+radiocredito.addEventListener("change", cambiosdepago)
+
+
+radiotransferencia.addEventListener("change", cambiosdepago)
 
 
 
