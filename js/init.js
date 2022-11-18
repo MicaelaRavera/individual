@@ -11,7 +11,9 @@ let buscarmail = localStorage.getItem("mail");
 let mostrarmail = document.getElementById("correo")
 mostrarmail.innerHTML = buscarmail
 
-
+document.getElementById("cerrarsesion").addEventListener("click", () => {
+localStorage.clear()
+})
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }

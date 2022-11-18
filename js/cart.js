@@ -13,6 +13,15 @@ function cargarCarrito() {
 
 cargarCarrito()
 
+function cambiarcantidadproducto(cantidad, id) {
+  for (let producto of infoproductos) {
+    if (producto.id == id) {
+      producto.count = cantidad
+      mostrarCarrito()
+    }
+  }
+}
+
 function mostrarCarrito(){
     let detallescarrito = document.getElementById("carrito")
     detallescarrito.innerHTML = ""
@@ -70,17 +79,6 @@ function mostrarCarrito(){
     
 }
 
-function cambiarcantidadproducto(cantidad,id) {
-  for(let producto of infoproductos) {
-    console.log(producto)
-    if (producto.id == id){
-        console.log(id)
-        console.log(cantidad)
-        producto.count = cantidad
-        mostrarCarrito ()
-    }
-  } 
-}
 
 
 (function () {

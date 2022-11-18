@@ -68,10 +68,36 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="container" style="width: 65%;">
+      <form class="row g-3 needs-validation" novalidate>
+        <h1 class="mb-5">Perfil</h1>
+        <hr>
+        <div class="d-flex mx-auto mb-5" style="gap: 30px;">
+          <div  class="flex-grow-1">
+            <label for="nombre">Nombre</label>
+            <input class="form-control" name="nombre" id="nombre" type="text" required>
+            <label for="apellido">Apellido</label>
+            <input class="form-control" name="apellido" id="apellido" type="text" required>
+            <label for="email">E-mail</label>
+            <input class="form-control" name="email" id="email" type="email" required>
+          </div>
+          <div class="flex-grow-1">
+            <label for="nombre2">Segundo nombre</label>
+            <input class="form-control" name="nombre2" id="nombre2" type="text">
+            <label for="apellido2">Segundo apellido</label>
+            <input class="form-control" name="apellido2" id="apellido2" type="text">
+            <label for="contacto">Telefono de contacto</label>
+            <input class="form-control" name="contacto" id="contacto" type="text">
+          </div>
+          
+         </div>
+        <hr>
+        <div>
+          <button id="botoncambios" type="submit" class="btn-primary btn">Guardar cambios</button>
+        </div>
+        
+
+      </form>
     </div>
   </main>
   <footer class="text-muted">

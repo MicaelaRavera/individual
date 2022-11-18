@@ -10,7 +10,7 @@ function mostrarProducto(producto){
 let detallesproducto = document.getElementById("productoinfo")
     detallesproducto.innerHTML = `
 
-    // hacer boton de ecompras aca
+    
     <h2 class="producto">
     ${producto.name}
     <br>
