@@ -7,7 +7,7 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
-let buscarmail = localStorage.getItem("mail");
+let buscarmail = localStorage.getItem("perfil-email");
 let mostrarmail = document.getElementById("correo")
 mostrarmail.innerHTML = buscarmail
 

@@ -25,10 +25,11 @@ Array.prototype.slice.call(forms)
             form.classList.add('was-validated')
         }, false)
     })
-document.getElementById("botoncambios").addEventListener("click",() => {
-   
-})
+
 window.addEventListener("load",() =>{
+    if (localStorage.getItem("perfil-email")===null){
+        window.location.replace("index.html")
+    }
     let nombre = localStorage.getItem("perfil-nombre")
     let apellido = localStorage.getItem("perfil-apellido")
     let email = localStorage.getItem("perfil-email")
@@ -42,4 +43,5 @@ window.addEventListener("load",() =>{
     document.getElementById("apellido2").value = apellido2 
     document.getElementById("contacto").value = contacto 
 })
+
 
